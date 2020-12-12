@@ -1,0 +1,23 @@
+{
+  "name": "contactformmailer",
+  "version": "1.0.0",
+  "description": "Project to send mail when contactMe forms are submitted",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhamadhav/contactFormMailer.git"
+  },
+  "author": "Madhav Jha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhamadhav/contactFormMailer/issues"
+  },
+  "homepage": "https://github.com/jhamadhav/contactFormMailer#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "nodemailer": "^6.4.17"
+  }
+}
