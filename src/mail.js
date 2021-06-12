@@ -11,12 +11,12 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-const sendMail = (toUser) => {
+const sendMail = (data) => {
     let mailOptions = {
         from: process.env.user,
-        to: toUser,
-        subject: 'Sending Email using Node.js',
-        html: `<h1>Hello Mail</h1>`
+        to: data.toUser,
+        subject: data.subject,
+        html: data.body
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
@@ -29,4 +29,3 @@ const sendMail = (toUser) => {
 }
 
 module.exports = sendMail;
-

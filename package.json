@@ -4,7 +4,8 @@
   "description": "Project to send mail when contactMe forms are submitted",
   "main": "index.js",
   "scripts": {
-    "dev": "node ./src/index.js"
+    "dev": "nodemon ./src/index.js",
+    "start": "node ./src/index.js"
   },
   "repository": {
     "type": "git",
