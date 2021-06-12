@@ -23,7 +23,7 @@ app.post("/sendMail", async (req, res) => {
         "body": req.body.body
     }
     console.log(yourMail);
-    sendMail(yourMail);
+    let yourMailRes = await sendMail(yourMail);
 
     // send a thank you email to user
     let userMail = {
@@ -32,8 +32,11 @@ app.post("/sendMail", async (req, res) => {
         "body": "Happy to know that you liked it"
     }
     console.log(userMail);
-    sendMail(userMail)
-    res.json({ message: "success" })
+    let userMailRes = await sendMail(userMail)
+
+    let resData = { mailToYou: yourMailRes, mailtoUser: userMailRes }
+    console.log(resData)
+    res.json(resData)
 })
 
 // listen for requests :)

@@ -11,22 +11,19 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-const sendMail = (data) => {
+const sendMail = async (data) => {
     let mailOptions = {
         from: process.env.user,
         to: data.toUser,
         subject: data.subject,
         html: data.body
     };
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email sent: ' + info.response);
+    let res = await transporter.sendMail(mailOptions)
 
-        }
-    });
-
+    if (res.rejected.length != 0) {
+        return false
+    }
+    return true
 }
 
 module.exports = sendMail;
