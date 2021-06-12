@@ -18,14 +18,15 @@ const sendMail = (data) => {
         subject: data.subject,
         html: data.body
     };
-
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             console.log(error);
         } else {
             console.log('Email sent: ' + info.response);
+
         }
     });
+
 }
 
 module.exports = sendMail;

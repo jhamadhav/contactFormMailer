@@ -1,10 +1,13 @@
 const createEmailData = (user) => {
     let data = {}
-    return user
+    data.yourEmail = "jhamadhav28@gmail.com"
+    data.subject = `Feedback from : ${user.name}`
+    data.body = `Email : ${user.email}\nMessage : ${user.message}`
+    data.userEmail = user.email
+    return data
 }
 
 const callMailAPI = async (data) => {
-    console.log(data);
     const url = '/sendMail'
     let response = await fetch(url, {
         method: 'POST',
@@ -27,7 +30,7 @@ window.onload = () => {
         };
 
         let data = createEmailData(user)
-        let response = await callMailAPI(user)
+        let response = await callMailAPI(data)
         console.log(response)
     }
 }
