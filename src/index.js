@@ -1,4 +1,5 @@
 const express = require("express")
+const cors = require('cors')
 const app = express()
 
 // port infos
@@ -7,6 +8,7 @@ const port = process.env.PORT || 8000
 // parser
 app.use(express.static("public"))
 app.use(express.json())
+app.use(cors())
 
 app.get("/", (request, response) => {
     response.sendFile(__dirname + "../public/index.html");
